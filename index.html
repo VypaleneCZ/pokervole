@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Turnaj Aplikace</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Odkaz na CSS -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Poker Turnaj Alkoholiků Aplikace</h1>
+    </header>
+
+    <main>
+        <section id="input-form">
+            <h2>Nastavení Turnaje</h2>
+            <form id="tournamentForm">
+                <div class="form-group">
+                    <label for="playerCount">Počet hráčů:</label>
+                    <input type="number" id="playerCount" name="playerCount" min="2" required placeholder="Zadejte počet hráčů">
+                </div>
+
+                <div class="form-group">
+                    <label for="buyIn">Startovné (Kč):</label>
+                    <input type="number" id="buyIn" name="buyIn" min="1" required placeholder="Zadejte startovné">
+                </div>
+
+                <div class="form-group">
+                    <label for="winners">Počet vítězů:</label>
+                    <input type="number" id="winners" name="winners" min="1" required placeholder="Zadejte počet vítězů">
+                </div>
+
+                <button type="submit"><i class="fas fa-plus-circle"></i> Vytvořit Turnaj</button>
+            </form>
+        </section>
+
+        <section id="tournament-details" class="hidden">
+            <h2>Detaily Turnaje</h2>
+            <div id="prizes" class="details-box"></div>
+            <div id="blind-plan" class="details-box"></div>
+            <div class="controls">
+                <button id="startTournament"><i class="fas fa-play"></i> Start Turnaje</button>
+                <button id="pauseTournament" class="hidden"><i class="fas fa-pause"></i> Pauza Turnaje</button>
+                <div id="timer">Čas do zvýšení blindu: <span id="time">--:--</span></div>
+                <div id="currentBlind">Aktuální Blind: <span id="currentBlindInfo">-- / --</span></div>
+            </div>
+            <button id="saveTournament"><i class="fas fa-save"></i> Uložit Turnaj</button>
+        </section>
+
+        <section id="saved-tournaments">
+            <h2>Uložené Turnaje</h2>
+            <ul id="tournamentList"></ul>
+        </section>
+
+        <section id="hand-rankings">
+            <h2>Seznam Pokerových Kombinací</h2>
+            <img src="assets/hands/all_combinations.png" alt="Poker Combinations" class="hand-combinations">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Poker Turnaj Aplikace</p>
+    </footer>
+
+    <!-- Audio element for alert -->
+    <audio id="alertSound" src="assets/sounds/alert.mp3" preload="auto"></audio>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

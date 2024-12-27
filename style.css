@@ -1,0 +1,346 @@
+/* Reset základních stylů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ff7e5f; /* Oranžová */
+    --secondary-color: #feb47b; /* Světle oranžová */
+    --accent-color: #7b2ff7; /* Fialová */
+    --button-hover-color: #feb47b; /* Světle oranžová */
+    --background-gradient: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    --text-color: #333333; /* Tmavě šedá */
+    --header-footer-color: #ff7e5f; /* Oranžová */
+    --table-border-color: #7b2ff7; /* Fialová */
+    --table-header-bg: #a86cff; /* Světle fialová */
+    --button-color: #4facfe; /* Modrá */
+    --button-secondary-color: #7b2ff7; /* Fialová */
+    --background-image: url('../assets/images/background.png'); /* Relativní cesta k obrázku */
+    --background-overlay-color: rgba(255, 255, 255, 0.6); /* Překryv pro lepší čitelnost textu */
+}
+
+/* Nastavení pozadí pro celé tělo stránky */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: var(--background-image), var(--background-gradient);
+    background-size: cover, cover; /* Obrázek pokrývá celý prostor */
+    background-position: center, center; /* Obrázek je vycentrován */
+    background-repeat: no-repeat, no-repeat; /* Obrázek se neopakuje */
+    background-blend-mode: overlay; /* Přidání překryvu pro lepší kontrast */
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Přidání překryvu na hlavní obsah pro lepší čitelnost */
+main {
+    position: relative;
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--background-overlay-color); /* Bílé překryv */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+header, footer {
+    background-color: var(--header-footer-color);
+    text-align: center;
+    padding: 20px 0;
+    color: #ffffff;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #ffffff;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button i {
+    margin-right: 8px;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.02);
+}
+
+.details-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+#hand-rankings, #saved-tournaments {
+    margin-top: 40px;
+}
+
+#hand-rankings img.hand-combinations {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    display: block;
+}
+
+#tournamentList, #saved-tournaments ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#tournamentList li, #saved-tournaments li {
+    background-color: #ffecd2; /* Světle žlutá */
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#tournamentList li span, #saved-tournaments li span {
+    color: #333333;
+}
+
+#tournamentList button, #saved-tournaments button {
+    margin-left: 5px;
+    padding: 8px 12px;
+    background-color: var(--button-color); /* Modrá */
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tournamentList button i, #saved-tournaments button i {
+    margin-right: 5px;
+}
+
+#tournamentList button:hover, #saved-tournaments button:hover {
+    background-color: #00f2fe; /* Světle modrá */
+    transform: scale(1.05);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+#startTournament, #pauseTournament {
+    width: auto;
+    padding: 10px 20px;
+    background-color: var(--accent-color); /* Fialová */
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#pauseTournament {
+    background-color: #ffc75f; /* Žlutá */
+}
+
+#startTournament i, #pauseTournament i {
+    margin-right: 8px;
+}
+
+#startTournament:hover {
+    background-color: #a86cff; /* Světle fialová */
+    transform: scale(1.02);
+}
+
+#pauseTournament:hover {
+    background-color: #ffeb3b; /* Světle žlutá */
+    transform: scale(1.02);
+}
+
+#timer {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #333333;
+}
+
+#timer span {
+    font-weight: bold;
+    color: var(--primary-color); /* Oranžová */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid var(--table-border-color); /* Fialová */
+    color: #333333;
+}
+
+th {
+    background-color: var(--table-header-bg); /* Světle fialová */
+}
+
+/* Responzivní Design pro Mobilní Zařízení */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .hand-combinations {
+        max-width: 100%;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #pauseTournament {
+        margin-top: 10px;
+        margin-right: 0;
+    }
+
+    #timer {
+        margin-top: 10px;
+    }
+
+    /* Zvětšení tlačítek pro lepší dotykovou použitelnost */
+    button, #startTournament, #pauseTournament {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+
+    /* Zajištění, že obrázek je dostatečně malý na mobilu */
+    #hand-rankings img.hand-combinations {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Flexbox pro sekci turnaje na mobilu */
+    .controls {
+        width: 100%;
+    }
+
+    .controls button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Přidání jemných animací */
+.hidden {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; display: none; }
+}
+
+#leaderboard table {
+    transition: transform 0.3s ease;
+}
+
+#leaderboard table:hover {
+    transform: scale(1.05);
+}
